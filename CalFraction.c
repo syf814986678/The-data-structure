@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 typedef struct
-{   int n;  // 分子
+{   int n2;  // 分子
     int d;  // 分母
 } FRACTION;
 int maxcommonfactor(int a,int b){
