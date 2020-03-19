@@ -21,7 +21,7 @@ int DelList(SeqList *L,int i){
     L->last--;
     return ok;
 }
-int DelSame(SeqList *l){
+int DelSameX(SeqList *l){
     int i,j;
     if(l->last<=0) return ok;
     for(i=0,j=1;i<l->last;i++){
@@ -48,9 +48,9 @@ int main(){
     SeqList.last=7;
     //int e;
    // DelList(&SeqList,3);
-    DelSame(&SeqList);
+    DelSameX(&SeqList);
     for(int i=0;i<=SeqList.last;i++){
-        printf("Ñ­»·Íâ%d\n",SeqList.elem[i]);
+        printf("%d\n",SeqList.elem[i]);
     }
    // printf("%d\n",SeqList.last);
     return 0;
