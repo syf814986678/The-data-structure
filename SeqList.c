@@ -24,13 +24,17 @@ int DelList(SeqList *L,int i){
 int DelSame(SeqList *l){
     int i,j;
     if(l->last<=0) return ok;
-    for(i=0;i<=l->last;i++){
-        if(l->elem[i]==l->elem[i+1]){
-            //DelList(l,i+1,&j);
-            l->elem[i+1]=l->elem[i+2];
-            l->last--;
+    for(i=0,j=0;i<=l->last;i++){
+        if(l->elem[i]!=l->elem[i+1]){
+           // l->elem[j+1]=l->elem[i+1]; 
+            l->elem[j]=l->elem[i];
+          //  printf("循环内%d\n",l->elem[i+1]);
+           // printf("循环内%d\n",l->elem[i+2]);
+            j++;
         }
+       // l->last=j-1;
     }
+    l->last=j-1;
 }
 
 int main(){
@@ -38,16 +42,17 @@ int main(){
     SeqList SeqList;
     SeqList.elem[0]=1;
     SeqList.elem[1]=1;
-    SeqList.elem[2]=1;
+    SeqList.elem[2]=2;
     SeqList.elem[3]=4;
     SeqList.elem[4]=4;
-    SeqList.last=4;
+    SeqList.elem[5]=5;
+    SeqList.last=5;
     //int e;
    // DelList(&SeqList,3);
     DelSame(&SeqList);
     for(int i=0;i<=SeqList.last;i++){
-        printf("%d\n",SeqList.elem[i]);
+        printf("循环外%d\n",SeqList.elem[i]);
     }
-    printf("%d\n",SeqList.last);
+   // printf("%d\n",SeqList.last);
     return 0;
 }
